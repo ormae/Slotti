@@ -32,15 +32,26 @@ private:
     QGraphicsScene *_scene;
 
     void setUpBoard();
-    void wait(int msecs);
+    void wait();
     void spinAnimation();
+    /**
+     * @brief getPicPath
+     * @return
+     */
+    QString getPicPath(int index);
+    QString getPic(bool lockingsituation, int y);
+    void storeToBoard(int index, int y);
 
     double _money;
     double _currentBet;
     int _betIndex;
 
-    std::map<coord,QGraphicsPixmapItem*> picMap;
+    std::vector<std::vector<QGraphicsPixmapItem*>> picVec;
     std::map<int,int> gameBoard;
+    std::map<int,std::vector<int>> afterBoard;
+    std::vector<bool> _lockList;
+    int _waitmsecs; // For time between moving reels.
+    bool _spinninggoing; // Flag for spinning animation.
 };
 
 #endif // MAINWINDOW_HH
