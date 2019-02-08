@@ -1,4 +1,4 @@
-#ifndef MAINWINDOW_HH
+﻿#ifndef MAINWINDOW_HH
 #define MAINWINDOW_HH
 
 #include <QMainWindow>
@@ -6,7 +6,9 @@
 #include <map>
 #include <QGraphicsPixmapItem>
 
-using coord = std::pair<int,int>;
+#include <spinreel.hh>
+#include <spinnerpicitem.hh>
+
 
 namespace Ui {
 class MainWindow;
@@ -30,28 +32,18 @@ private:
     Ui::MainWindow *ui;
 
     QGraphicsScene *_scene;
+    spinReel *_reels;
 
     void setUpBoard();
-    void wait();
-    void spinAnimation();
-    /**
-     * @brief getPicPath
-     * @return
-     */
+
     QString getPicPath(int index);
-    QString getPic(bool lockingsituation, int y);
-    void storeToBoard(int index, int y);
+    int getIndex();
 
     double _money;
     double _currentBet;
     int _betIndex;
 
-    std::vector<std::vector<QGraphicsPixmapItem*>> picVec;
-    std::map<int,int> gameBoard;
-    std::map<int,std::vector<int>> afterBoard;
-    std::vector<bool> _lockList;
-    int _waitmsecs; // For time between moving reels.
-    bool _spinninggoing; // Flag for spinning animation.
+    bool _spinninggoing; // Flag for spinning.
 };
 
 #endif // MAINWINDOW_HH

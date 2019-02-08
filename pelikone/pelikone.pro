@@ -26,11 +26,17 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    dialogstart.cpp
+    dialogstart.cpp \
+    spinnerpicitem.cpp \
+    spinreel.cpp \
+    graphicsview.cpp
 
 HEADERS += \
         mainwindow.hh \
-    dialogstart.hh
+    dialogstart.hh \
+    spinnerpicitem.hh \
+    spinreel.hh \
+    graphicsview.hh
 
 FORMS += \
         mainwindow.ui \
